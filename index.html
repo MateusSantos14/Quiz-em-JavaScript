@@ -9,15 +9,34 @@
     </head>
 
     <body>
+        <script>
+
+            // Função para mudar o conteúdo de t2
+            function modifyText(new_text,n) {
+              var t2 = document.getElementById(`Label_Opcao_${n}`);
+              t2.firstChild.nodeValue = new_text;
+            }
+            
+            // Função para adicionar uma espera de evento em t
+            function load() {
+                for(let a = 1;a<5;a++)
+                {
+                    modifyText(`texto${a}`,a);
+                }
+
+            }
+            </script>
+            
         <section>
             <div class="container">
                 <div class="row">
                     <form>
                         <p><label>Pergunta</label></p>
-                        <input type="radio">Opção1<br>
-                        <input type="radio">Opção2<br>
-                        <input type="radio">Opção3<br>
-                        <input type="radio">Opção4<br>
+                        <input type="radio" name="resposta" value=""><label id="Label_Opcao_1" for="">Opção1</label><br>
+                        <input type="radio" name="resposta" value=""><label id="Label_Opcao_2" for="">Opção2</label><br>
+                        <input type="radio" name="resposta" value=""><label id="Label_Opcao_3" for="">Opção3</label><br>
+                        <input type="radio" name="resposta" value=""><label id="Label_Opcao_4" for="">Opção4</label><br>
+                        <button type="button" onclick="load()" id="enviar">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -25,6 +44,6 @@
         <!--Bootstrap-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     </body>
 </html>
