@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head onload="load();">
         <link rel="stylesheet" href="css/style.css">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,34 +9,18 @@
     </head>
 
     <body>
-        <script>
-
-            // Função para mudar o conteúdo de t2
-            function modifyText(new_text,n) {
-              var t2 = document.getElementById(`Label_Opcao_${n}`);
-              t2.firstChild.nodeValue = new_text;
-            }
-            
-            // Função para adicionar uma espera de evento em t
-            function load() {
-                for(let a = 1;a<5;a++)
-                {
-                    modifyText(`texto${a}`,a);
-                }
-
-            }
-            </script>
+        <script src="script/script.js"></script>
             
         <section>
             <div class="container">
                 <div class="row">
                     <form>
-                        <p><label>Pergunta</label></p>
-                        <input type="radio" name="resposta" value=""><label id="Label_Opcao_1" for="">Opção1</label><br>
-                        <input type="radio" name="resposta" value=""><label id="Label_Opcao_2" for="">Opção2</label><br>
-                        <input type="radio" name="resposta" value=""><label id="Label_Opcao_3" for="">Opção3</label><br>
-                        <input type="radio" name="resposta" value=""><label id="Label_Opcao_4" for="">Opção4</label><br>
-                        <button type="button" onclick="load()" id="enviar">Enviar</button>
+                        <p><label id="pergunta"> </label></p>
+                        <input type="radio" name="resposta" id="opcao1" value="1"><label id="Label_Opcao_1" for="">Opção1</label><br>
+                        <input type="radio" name="resposta" id="opcao2" value="2"><label id="Label_Opcao_2" for="">Opção2</label><br>
+                        <input type="radio" name="resposta" id="opcao3" value="3"><label id="Label_Opcao_3" for="">Opção3</label><br>
+                        <input type="radio" name="resposta" id="opcao4" value="4"><label id="Label_Opcao_4" for="">Opção4</label><br>
+                        <button type="button" id="enviar" value="0:0">Enviar</button>
                     </form>
                 </div>
             </div>
