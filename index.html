@@ -14,14 +14,46 @@
         <section>
             <div class="container">
                 <div class="row">
-                    <form>
-                        <p><label id="pergunta"> </label></p>
-                        <input type="radio" name="resposta" id="opcao1" value="1"><label id="Label_Opcao_1" for="">Opção1</label><br>
-                        <input type="radio" name="resposta" id="opcao2" value="2"><label id="Label_Opcao_2" for="">Opção2</label><br>
-                        <input type="radio" name="resposta" id="opcao3" value="3"><label id="Label_Opcao_3" for="">Opção3</label><br>
-                        <input type="radio" name="resposta" id="opcao4" value="4"><label id="Label_Opcao_4" for="">Opção4</label><br>
+                    <h1>Quiz</h1>
+                    <form id = "quiz">
+                        <p><label id="pergunta">Deseja participar do quiz?</label></p>
+                        <table id="alternativas">
+                            <tr>
+                                <td>
+                                    <input type="radio" name="resposta" id="opcao1" value="1">
+                                </td>
+                                <td>
+                                    <label id="Label_Opcao_1" for="">Teste</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="resposta" id="opcao2" value="2">
+                                </td>
+                                <td>
+                                    <label id="Label_Opcao_2" for="">Teste</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="resposta" id="opcao3" value="3">
+                                </td>
+                                <td>
+                                    <label id="Label_Opcao_3" for="">Teste</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="resposta" id="opcao4" value="4">
+                                </td>
+                                <td>
+                                    <label id="Label_Opcao_4" for="">Teste</label>
+                                </td>
+                            </tr>
+                        </table>
                         <button type="button" id="enviar" value="0:0">Enviar</button>
                     </form>
+                    <h3 id="aviso"> </h3>
                 </div>
             </div>
         </section>
