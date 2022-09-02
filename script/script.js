@@ -68,7 +68,7 @@ function proximo_passo(questoes)//Id_questao varia de 0 a 3
         }
         pontuacao = (pontuacao/pontuacao_total)*100
         document.getElementById("alternativas").style.display = "none";
-        modificarPeloId(`Quiz encerrado Pontuação: ${Math.round(pontuacao)}%`,"pergunta");
+        modificarPeloId(`Quiz encerrado. Pontuação: ${Math.round(pontuacao)}%`,"pergunta");
         //Reseta para próxima rodada do quiz
         questao = 0;
         pontuacao = 0;
