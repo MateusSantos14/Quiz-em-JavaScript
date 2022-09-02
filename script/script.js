@@ -27,7 +27,11 @@ function acessar_api()
 function proximo_passo(questoes)//Id_questao varia de 0 a 3
 {
     var opcao_marcada = 0; 
-    if(questao > 0 && questao<5)
+    if(questao == 0)
+    {
+        modificarPeloId("Enviar","enviar");
+    }
+    if(questao > 0 && questao<6)
     {
         //Encontra a opção marcada e se tiver opção marcada, calcula a pontuação.
         for(var x = 0;x<4;x++)
@@ -35,7 +39,6 @@ function proximo_passo(questoes)//Id_questao varia de 0 a 3
             if(document.getElementById(`opcao${x+1}`).checked)
             {
                 document.getElementById(`opcao${x+1}`).checked = false;
-                console.log(questoes[questao-1]["options"][x]);
                 pontuacao = parseInt(pontuacao) + parseInt(questoes[questao-1]["options"][x]["value"]);
                 opcao_marcada = 1;
             }
@@ -49,9 +52,27 @@ function proximo_passo(questoes)//Id_questao varia de 0 a 3
     }
     if(questao == 5)
     {
-        questao = 0;
+        //Verificar total de pontos
+        var maior,pontuacao_total = 0;
+        for(var a = 0;a<questoes.length;a++)
+        {
+            maior = 0;
+            for(var b = 0;b<questoes[a]["options"].length;b++)
+            {
+                if(questoes[a]["options"][b]["value"]>maior)
+                {
+                    maior = questoes[a]["options"][b]["value"]
+                }
+            } 
+            pontuacao_total += maior;
+        }
+        pontuacao = (pontuacao/pontuacao_total)*100
         document.getElementById("alternativas").style.display = "none";
-        modificarPeloId(`Quiz encerrado Pontuação: ${pontuacao}`,"aviso");
+        modificarPeloId(`Quiz encerrado Pontuação: ${Math.round(pontuacao)}%`,"pergunta");
+        //Reseta para próxima rodada do quiz
+        questao = 0;
+        pontuacao = 0;
+        modificarPeloId("Fazer quiz novamente","enviar");
         return 0;
     }
     else
@@ -65,8 +86,11 @@ function proximo_passo(questoes)//Id_questao varia de 0 a 3
     {
         modificarPeloId(questoes[questao]["options"][x]["answer"],`Label_Opcao_${x+1}`)
     }
-    modificarPeloId("","aviso");
-    modificarPeloId(questao,"aviso");
+    if(document.getElementById("aviso").textContent != "")
+    {
+        modificarPeloId("","aviso");
+    }
+
     questao++;
     return 0;
     
