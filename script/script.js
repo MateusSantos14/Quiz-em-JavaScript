@@ -23,8 +23,8 @@ function acessar_api()
 
 }
 
-//Funcao para mudar a questao atual
-function proximo_passo(questoes)//Id_questao varia de 0 a 3
+//Somar a pontuação
+function proximo_passo(questoes)
 {
     var opcao_marcada = 0; 
     if(questao == 0)
@@ -50,6 +50,7 @@ function proximo_passo(questoes)//Id_questao varia de 0 a 3
             return 0;
         }
     }
+    //Imprime o Resultado
     if(questao == 5)
     {
         //Verificar total de pontos
@@ -75,6 +76,7 @@ function proximo_passo(questoes)//Id_questao varia de 0 a 3
         modificarPeloId("Fazer quiz novamente","enviar");
         return 0;
     }
+    //Faz com que as alternativas apareçam
     else
     {
         document.getElementById("alternativas").style.display = "block";
@@ -86,6 +88,7 @@ function proximo_passo(questoes)//Id_questao varia de 0 a 3
     {
         modificarPeloId(questoes[questao]["options"][x]["answer"],`Label_Opcao_${x+1}`)
     }
+    //Caso haja o aviso de que não há questão marcada, o remove
     if(document.getElementById("aviso").textContent != "")
     {
         modificarPeloId("","aviso");
@@ -100,12 +103,6 @@ function modificarPeloId(novo_texto,id)
 {
     var elemento = document.getElementById(id);
     elemento.firstChild.nodeValue = novo_texto;
-}
-
-function load() 
-{
-    var el = document.getElementById("enviar");
-    el.addEventListener("click", modificarPeloId("teste","pergunta"), false);
 }
 
 acessar_api();
